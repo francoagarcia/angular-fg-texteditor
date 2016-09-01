@@ -16,7 +16,7 @@
 		"type": "git",
 		"url": "git://github.com/francoagarcia/angular-fg-texteditor.git"
 	},
-	"version": "0.0.3",
+	"version": "0.0.5",
 	"engines": {
 		"node": ">= 0.10.0"
 	},

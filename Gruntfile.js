@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 				stripBanners: true
 			},
 			dist: {
-				src: ['lib/simditor-all.js', 'src/angular-fg-editor.js'],
+				src: ['lib/simditor-all.js', 'src/*.js'],
 				dest: 'dist/<%= pkg.name %>.js'
 			}
 		},
