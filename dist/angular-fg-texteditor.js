@@ -1,4 +1,4 @@
-/*! angular-fg-texteditor - v0.0.1 - 2016-09-01
+/*! angular-fg-texteditor - v0.0.3 - 2016-09-01
 * https://github.com/francoagarcia/angular-fg-texteditor
 * Copyright (c) 2016 Franco Garcia; Licensed MIT */
 (function() {
@@ -167,7 +167,7 @@
 			url: '',
 			params: null,
 			connectionCount: 3,
-			leaveConfirm: '正在上传文件，如果离开上传会自动取消'
+			leaveConfirm: 'La carga de archivos se cancelará si se va'
 		};
 
 		Uploader.prototype.files = [];
@@ -473,7 +473,7 @@
 			}
 		};
 
-		Selection.prototype.range = function(range) {
+		/*Selection.prototype.range = function(range) {
 			var ffOrIE;
 			if (range) {
 				this.clear();
@@ -487,7 +487,7 @@
 				this._range = this.sel.getRangeAt(0);
 			}
 			return this._range;
-		};
+		};*/
 
 		Selection.prototype.getRange = function() {
 			if (!this.editor.inputManager.focused || !this.sel.rangeCount) {
@@ -2459,8 +2459,8 @@
 			var tag, _i, _len, _ref3,
 			_this = this;
 			this.editor = editor;
-			this.title = this._t(this.name);
-			Button.__super__.constructor.call(this, opts);
+			/*this.title = this._t(this.name);
+			Button.__super__.constructor.call(this, opts);*/
 			this.render();
 			this.el.on('mousedown', function(e) {
 				var param;
@@ -2573,7 +2573,7 @@
 
 		Button.prototype.command = function(param) {};
 
-		Button.prototype._t = function() {
+		/*Button.prototype._t = function() {
 			var args, ref, result;
 			args = 1 <= arguments.length ? slice.call(arguments, 0) : [];
 			result = Button.__super__._t.apply(this, args);
@@ -2581,7 +2581,7 @@
 				result = (ref = this.editor)._t.apply(ref, args);
 			}
 			return result;
-		};
+		};*/
 
 		return Button;
 
@@ -4251,7 +4251,7 @@
 
 		TableButton.prototype.renderMenu = function() {
 			var _this = this;
-			$('<div class="menu-create-table">\n</div>\n<div class="menu-edit-table">\n  <ul>\n    <li><a tabindex="-1" unselectable="on" class="menu-item" href="javascript:;" data-param="deleteRow"><span>Eliminar fila</span></a></li>\n    <li><a tabindex="-1" unselectable="on" class="menu-item" href="javascript:;" data-param="insertRowAbove"><span>Insertar fila arriba</span></a></li>\n    <li><a tabindex="-1" unselectable="on" class="menu-item" href="javascript:;" data-param="insertRowBelow"><span>Insertar fila abajo</span></a></li>\n    <li><span class="separator"></span></li>\n    <li><a tabindex="-1" unselectable="on" class="menu-item" href="javascript:;" data-param="deleteCol"><span>Eliminar columna</span></a></li>\n    <li><a tabindex="-1" unselectable="on" class="menu-item" href="javascript:;" data-param="insertColLeft"><span>Insertar columna a la izquierda</span></a></li>\n    <li><a tabindex="-1" unselectable="on" class="menu-item" href="javascript:;" data-param="insertColRight"><span>Insertar columna a la derecha</span></a></li>\n    <li><span class="separator"></span></li>\n    <li><a tabindex="-1" unselectable="on" class="menu-item" href="javascript:;" data-param="deleteTable"><span>Eliminar tabla</span></a></li>\n  </ul>\n</div>').appendTo(this.menuWrapper);
+			$('<div class="menu-create-table">\n</div>\n<div class="menu-edit-table">\n  <ul>\n    <li><a tabindex="-1" unselectable="on" class="menu-item" href="javascript:;" data-param="deleteRow"><span style="font-size: 12px;">Eliminar fila</span></a></li>\n    <li><a tabindex="-1" unselectable="on" class="menu-item" href="javascript:;" data-param="insertRowAbove"><span style="font-size: 12px;">Insertar fila arriba</span></a></li>\n    <li><a tabindex="-1" unselectable="on" class="menu-item" href="javascript:;" data-param="insertRowBelow"><span style="font-size: 12px;">Insertar fila abajo</span></a></li>\n    <li><span class="separator"></span></li>\n    <li><a tabindex="-1" unselectable="on" class="menu-item" href="javascript:;" data-param="deleteCol"><span style="font-size: 12px;">Eliminar columna</span></a></li>\n    <li><a tabindex="-1" unselectable="on" class="menu-item" href="javascript:;" data-param="insertColLeft"><span style="font-size: 12px;">Insertar columna a la izquierda</span></a></li>\n    <li><a tabindex="-1" unselectable="on" class="menu-item" href="javascript:;" data-param="insertColRight"><span style="font-size: 12px;">Insertar columna a la derecha</span></a></li>\n    <li><span class="separator"></span></li>\n    <li><a tabindex="-1" unselectable="on" class="menu-item" href="javascript:;" data-param="deleteTable"><span style="font-size: 12px;">Eliminar tabla</span></a></li>\n  </ul>\n</div>').appendTo(this.menuWrapper);
 			this.createMenu = this.menuWrapper.find('.menu-create-table');
 			this.editMenu = this.menuWrapper.find('.menu-edit-table');
 			this.createTable(6, 6).appendTo(this.createMenu);
@@ -4690,53 +4690,3 @@
 	Simditor.Toolbar.addButton(StrikethroughButton);
 
 }).call(this);
-
-(function (window) {
-	'use strict';
-
-	var Simditor = window.Simditor;
-	var defaultToolbar = ['title', 'bold', 'italic', 'underline', 'strikethrough', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'image', 'hr', '|', 'indent', 'outdent'];
-	var defaultHeight = '300px';
-	var directives = angular.module('fg.texteditor',[]);
-
-	directives.directive('texteditor', function () {
-		return {
-			require: "?^ngModel",
-			link: function (scope, element, attrs, ngModel) {
-				var toolbar = angular.isDefined(scope.toolbar) ? scope.toolbar : defaultToolbar;
-				var height = angular.isDefined(scope.height) ? scope.height : defaultHeight;
-				element.append('<div style="height:'+ height +';"></div>');
-
-				scope.texteditor = new Simditor({
-					textarea: element.children()[0],
-					pasteImage: true,
-					toolbar: toolbar,
-					defaultImage: 'assets/images/image.png',
-					upload: location.search === '?upload' ? {
-						url: '/upload'
-					} : false
-				});
-
-				function readViewText() {
-					var html = element.find('.simditor-body').html();
-					if (attrs.stripBr && html === '<br>') {
-						html = '';
-					}
-
-					ngModel.$setViewValue(html);
-				}
-
-				var $target = element.find('.simditor-body');
-
-				ngModel.$render = function () {
-					scope.texteditor.focus();
-					$target.prepend(ngModel.$viewValue);
-				};
-
-				scope.texteditor.on('valuechanged', function(){
-					scope.$apply(readViewText);
-				});
-			}
-		};
-	});
-}(window));
