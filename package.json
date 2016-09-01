@@ -1,5 +1,6 @@
 {
 	"name": "angular-fg-texteditor",
+	"version": "0.0.6",
 	"author": {
 		"email": "francoagarcia@gmail.com",
 		"name": "Franco Garcia",
@@ -16,7 +17,6 @@
 		"type": "git",
 		"url": "git://github.com/francoagarcia/angular-fg-texteditor.git"
 	},
-	"version": "0.0.5",
 	"engines": {
 		"node": ">= 0.10.0"
 	},

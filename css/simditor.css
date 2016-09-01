@@ -270,6 +270,7 @@
 }
 .simditor .simditor-toolbar .toolbar-menu.toolbar-menu-table .menu-edit-table {
 	display: none;
+	width : 250px; /*XXX*/
 }
 .simditor .simditor-toolbar .toolbar-menu.toolbar-menu-image .menu-item-upload-image {
 	position: relative;
