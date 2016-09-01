@@ -4,7 +4,15 @@ AngularJS directive for simditor
 
 ## Install
 
+This projects depends on:
+	1. of course, AngularJs
+	2. jquery
+	3. fontawesome
+
+So: 
+
 ```
+bower install jquery --save
 bower install fontawesome --save
 bower install angular-fg-texteditor --save
 ```
@@ -31,5 +39,6 @@ angular.module('app', ['fg.texteditor']);
 ```html
 <texteditor ng-model='mymodel'></texteditor>
 ```
-
+.
+==============
 License MIT.

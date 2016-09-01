@@ -1,23 +1,23 @@
 {
-  "name": "angular-fg-texteditor",
-  "version": "0.0.1",
-  "homepage": "https://github.com/francoagarcia/angular-fg-texteditor",
-  "authors": [
-    "francoagarcia"
-  ],
-  "description": "AngularJS text editor with simditor",
-  "keywords": [
-    "angular", 
-    "simditor",
-    "fg",
-    "texteditor"
-  ],
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ]
+	"name": "angular-fg-texteditor",
+	"version": "0.0.2",
+	"homepage": "https://github.com/francoagarcia/angular-fg-texteditor",
+	"authors": [
+		"francoagarcia"
+	],
+	"description": "AngularJS text editor with simditor",
+	"keywords": [
+		"angular", 
+		"simditor",
+		"fg",
+		"texteditor"
+	],
+	"license": "MIT",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	]
 }
