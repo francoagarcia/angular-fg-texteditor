@@ -1,11 +1,23 @@
-/*! angular-fg-texteditor - v0.0.6 - 2016-09-01
+/*! angular-fg-texteditor - v0.0.7 - 2016-09-02
 * https://github.com/francoagarcia/angular-fg-texteditor
 * Copyright (c) 2016 Franco Garcia; Licensed MIT */
 (function() {
 	var Module, Plugin, Widget,
 	__slice = [].slice,
 	__hasProp = {}.hasOwnProperty,
-	__extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+	__extends = function(child, parent) { 
+		for (var key in parent) { 
+			if (__hasProp.call(parent, key)) 
+				child[key] = parent[key]; 
+		} 
+		function ctor() { 
+			this.constructor = child; 
+		} 
+		ctor.prototype = parent.prototype; 
+		child.prototype = new ctor(); 
+		child.__super__ = parent.prototype; 
+		return child; 
+	};
 
 	Module = (function() {
 		function Module() {}
@@ -156,7 +168,18 @@
 (function() {
 	var Uploader,
 	__hasProp = {}.hasOwnProperty,
-	__extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+	__extends = function(child, parent) { 
+		for (var key in parent) { 
+			if (__hasProp.call(parent, key)) child[key] = parent[key]; 
+		} 
+		function ctor() { 
+			this.constructor = child; 
+		} 
+		ctor.prototype = parent.prototype; 
+		child.prototype = new ctor(); 
+		child.__super__ = parent.prototype; 
+		return child; 
+	};
 
 	Uploader = (function(_super) {
 		__extends(Uploader, _super);
@@ -3809,7 +3832,7 @@
 					width: width,
 					height: height,
 					'data-origin-src': src,
-					'data-origin-name': '图片',
+					'data-origin-name': 'image',
 					'data-origin-size': img.width + ',' + img.height
 				});
 				$wrapper.width(width).height(height);
@@ -4702,16 +4725,22 @@
 	directives.directive('texteditor', function () {
 		return {
 			require: "?^ngModel",
+			scope : {
+				toolbar : '=?',
+				height : '@?',
+				defaultImage : '@?',
+			},
 			link: function (scope, element, attrs, ngModel) {
 				var toolbar = angular.isDefined(scope.toolbar) ? scope.toolbar : defaultToolbar;
 				var height = angular.isDefined(scope.height) ? scope.height : defaultHeight;
+				var defaultImage = angular.isDefined(scope.defaultImage) ? scope.defaultImage : undefined;
 				element.append('<div style="height:'+ height +';"></div>');
-
+				
 				scope.texteditor = new Simditor({
 					textarea: element.children()[0],
 					pasteImage: true,
 					toolbar: toolbar,
-					defaultImage: 'assets/images/image.png',
+					defaultImage : defaultImage,
 					upload: location.search === '?upload' ? {
 						url: '/upload'
 					} : false

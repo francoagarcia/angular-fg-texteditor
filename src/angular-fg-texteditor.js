@@ -10,16 +10,22 @@
 	directives.directive('texteditor', function () {
 		return {
 			require: "?^ngModel",
+			scope : {
+				toolbar : '=?',
+				height : '@?',
+				defaultImage : '@?',
+			},
 			link: function (scope, element, attrs, ngModel) {
 				var toolbar = angular.isDefined(scope.toolbar) ? scope.toolbar : defaultToolbar;
 				var height = angular.isDefined(scope.height) ? scope.height : defaultHeight;
+				var defaultImage = angular.isDefined(scope.defaultImage) ? scope.defaultImage : undefined;
 				element.append('<div style="height:'+ height +';"></div>');
-
+				
 				scope.texteditor = new Simditor({
 					textarea: element.children()[0],
 					pasteImage: true,
 					toolbar: toolbar,
-					defaultImage: 'assets/images/image.png',
+					defaultImage : defaultImage,
 					upload: location.search === '?upload' ? {
 						url: '/upload'
 					} : false
