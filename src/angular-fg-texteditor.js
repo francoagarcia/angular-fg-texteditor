@@ -3,7 +3,7 @@
 	'use strict';
 
 	var Simditor = window.Simditor;
-	var defaultToolbar = ['title', 'bold', 'italic', 'underline', 'strikethrough', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'image', 'hr', '|', 'indent', 'outdent'];
+	var defaultToolbar = ['title', 'bold', 'italic', 'underline', 'strikethrough', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'hr', '|', 'indent', 'outdent'];
 	var defaultHeight = '300px';
 	var directives = angular.module('fg.texteditor',[]);
 
@@ -25,10 +25,10 @@
 					textarea: element.children()[0],
 					pasteImage: true,
 					toolbar: toolbar,
-					defaultImage : defaultImage,
+					/*defaultImage : defaultImage,
 					upload: location.search === '?upload' ? {
 						url: '/upload'
-					} : false
+					} : false*/
 				});
 
 				function readViewText() {
