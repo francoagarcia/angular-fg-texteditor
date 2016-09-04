@@ -1,4 +1,4 @@
-/*! angular-fg-texteditor - v0.0.10 - 2016-09-04
+/*! angular-fg-texteditor - v0.0.11 - 2016-09-04
 * https://github.com/francoagarcia/angular-fg-texteditor
 * Copyright (c) 2016 Franco Garcia; Licensed MIT */
 (function() {
