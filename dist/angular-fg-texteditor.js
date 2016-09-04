@@ -1,4 +1,4 @@
-/*! angular-fg-texteditor - v0.0.11 - 2016-09-04
+/*! angular-fg-texteditor - v0.0.12 - 2016-09-04
 * https://github.com/francoagarcia/angular-fg-texteditor
 * Copyright (c) 2016 Franco Garcia; Licensed MIT */
 (function() {
@@ -4724,7 +4724,7 @@
 
 	directives.directive('texteditor', function () {
 		return {
-			require: "?^ngModel",
+			require: "^ngModel",
 			scope : {
 				toolbar : '=?',
 				height : '@?',
@@ -4734,6 +4734,7 @@
 				var toolbar = angular.isDefined(scope.toolbar) ? scope.toolbar : defaultToolbar;
 				var height = angular.isDefined(scope.height) ? scope.height : defaultHeight;
 				var defaultImage = angular.isDefined(scope.defaultImage) ? scope.defaultImage : undefined;
+
 				element.append('<div style="height:'+ height +';"></div>');
 				
 				scope.texteditor = new Simditor({

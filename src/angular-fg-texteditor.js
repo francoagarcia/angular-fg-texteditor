@@ -9,7 +9,7 @@
 
 	directives.directive('texteditor', function () {
 		return {
-			require: "?^ngModel",
+			require: "^ngModel",
 			scope : {
 				toolbar : '=?',
 				height : '@?',
@@ -19,6 +19,7 @@
 				var toolbar = angular.isDefined(scope.toolbar) ? scope.toolbar : defaultToolbar;
 				var height = angular.isDefined(scope.height) ? scope.height : defaultHeight;
 				var defaultImage = angular.isDefined(scope.defaultImage) ? scope.defaultImage : undefined;
+
 				element.append('<div style="height:'+ height +';"></div>');
 				
 				scope.texteditor = new Simditor({
