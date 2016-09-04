@@ -4725,12 +4725,11 @@
 	directives.directive('texteditor', function () {
 		return {
 			require: "^ngModel",
-			scope : {
-				toolbar : '=?',
-				height : '@?',
-				defaultImage : '@?',
-			},
+			scope : true,
 			link: function (scope, element, attrs, ngModel) {
+				scope.toolbar = scope.$eval(attrs.toolbar);
+				scope.height = attrs.height;
+				scope.defaultImage = attrs.defaultImage;
 				var toolbar = angular.isDefined(scope.toolbar) ? scope.toolbar : defaultToolbar;
 				var height = angular.isDefined(scope.height) ? scope.height : defaultHeight;
 				var defaultImage = angular.isDefined(scope.defaultImage) ? scope.defaultImage : undefined;
@@ -4741,10 +4740,10 @@
 					textarea: element.children()[0],
 					pasteImage: true,
 					toolbar: toolbar,
-					/*defaultImage : defaultImage,
+					defaultImage : defaultImage,
 					upload: location.search === '?upload' ? {
 						url: '/upload'
-					} : false*/
+					} : false
 				});
 
 				function readViewText() {
@@ -4752,7 +4751,6 @@
 					if (attrs.stripBr && html === '<br>') {
 						html = '';
 					}
-
 					ngModel.$setViewValue(html);
 				}
 
@@ -4763,7 +4761,7 @@
 					$target.prepend(ngModel.$viewValue);
 				};
 
-				scope.texteditor.on('valuechanged', function(){
+				scope.texteditor.on('valuechanged', function(val){
 					scope.$apply(readViewText);
 				});
 			}
