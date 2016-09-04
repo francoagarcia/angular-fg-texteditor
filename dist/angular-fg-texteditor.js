@@ -1,4 +1,4 @@
-/*! angular-fg-texteditor - v0.0.9 - 2016-09-02
+/*! angular-fg-texteditor - v0.0.10 - 2016-09-04
 * https://github.com/francoagarcia/angular-fg-texteditor
 * Copyright (c) 2016 Franco Garcia; Licensed MIT */
 (function() {
@@ -2135,7 +2135,7 @@
 				return _this.list.find('.menu-on').removeClass('.menu-on');
 			});
 			if (this.opts.toolbarFloat) {
-				this.wrapper.width(this.wrapper.outerWidth());
+				this.wrapper.width(this.wrapper.outerWidth()+'%');
 				this.wrapper.css('left', this.wrapper.offset().left);
 				$(window).on('scroll.simditor-' + this.editor.id, function(e) {
 					var bottomEdge, scrollTop, topEdge;
